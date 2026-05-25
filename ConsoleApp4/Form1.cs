@@ -1,4 +1,4 @@
-﻿using ConsoleApp4;
+using ConsoleApp4;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,10 +9,6 @@ namespace UrunGosterApp
 {
     public partial class Form1 : Form
     {
-        // Form bileşenlerini burada tanımlıyoruz
-        private Button btnGoster;
-        private ListBox listBoxUrunler;
-
         public Form1()
         {
             InitializeComponent();
@@ -22,11 +18,11 @@ namespace UrunGosterApp
         {
             try
             {
-                string jsonPath = "urunler.json";
+                string jsonPath = "Urunler.json";
 
                 if (!File.Exists(jsonPath))
                 {
-                    MessageBox.Show("JSON dosyası bulunamadı!");
+                    MessageBox.Show("JSON dosyasi bulunamadi!");
                     return;
                 }
 
@@ -44,43 +40,13 @@ namespace UrunGosterApp
                 }
                 else
                 {
-                    MessageBox.Show("JSON dosyası boş veya hatalı formatta.");
+                    MessageBox.Show("JSON dosyasi bos veya hatali formatta.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata oluştu:\n" + ex.Message);
+                MessageBox.Show("Hata olustu:\n" + ex.Message);
             }
-        }
-
-        // InitializeComponent metodunu burada yeniden yazıyoruz
-        private void InitializeComponent()
-        {
-            this.btnGoster = new Button();
-            this.listBoxUrunler = new ListBox();
-            this.SuspendLayout();
-
-            // btnGoster
-            this.btnGoster.Location = new System.Drawing.Point(30, 30);
-            this.btnGoster.Name = "btnGoster";
-            this.btnGoster.Size = new System.Drawing.Size(150, 30);
-            this.btnGoster.Text = "Ürünleri Göster";
-            this.btnGoster.Click += new System.EventHandler(this.btnGoster_Click);
-
-            // listBoxUrunler
-            this.listBoxUrunler.FormattingEnabled = true;
-            this.listBoxUrunler.ItemHeight = 15;
-            this.listBoxUrunler.Location = new System.Drawing.Point(30, 80);
-            this.listBoxUrunler.Name = "listBoxUrunler";
-            this.listBoxUrunler.Size = new System.Drawing.Size(300, 150);
-
-            // Form1
-            this.ClientSize = new System.Drawing.Size(400, 300);
-            this.Controls.Add(this.btnGoster);
-            this.Controls.Add(this.listBoxUrunler);
-            this.Name = "Form1";
-            this.Text = "Ürün Listesi";
-            this.ResumeLayout(false);
         }
     }
 }
